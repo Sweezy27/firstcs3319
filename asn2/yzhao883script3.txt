@@ -1,5 +1,8 @@
 -- Yue Zhao's script3
 
+--get into the database
+USE yzhao883assign2db;
+
 -- Query 1
 SELECT lastname FROM patient;
 

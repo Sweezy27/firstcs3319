@@ -1,5 +1,8 @@
 -- Yue Zhao's script4
 
+--get into the database
+USE yzhao883assign2db;
+
 -- delete the doctor who got license before Jan 1. 1965
 DELETE FROM doctor WHERE datebelicensed < '1965-1-1';
 /*Error occur since the doctor deleted is a foreign key
