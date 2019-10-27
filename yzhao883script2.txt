@@ -1,0 +1,90 @@
+-- Yue Zhao's script1
+
+-- add myself to the patient table
+SELECT * FROM patient;
+INSERT INTO patient VALUES('251000962','Yue','Zhao');
+-- display the data in patient
+SELECT * FROM patient;
+
+-- add data without workoutof to the doctor table
+SELECT * FROM doctor;
+INSERT INTO doctor VALUES('Bernie', 'Kavorikian', 'RD34', '1980-9-9', 'Urologist', NULL);
+INSERT INTO doctor VALUES('Joey', 'Shabado', 'GD56', '1960-6-24', 'Podiatrist', NULL);
+INSERT INTO doctor VALUES('Ross', 'Clooney', 'HT45', '1987-6-20', 'Surgeon', NULL);
+INSERT INTO doctor VALUES('Ben', 'Spock', 'YT67', '1955-2-20', 'Pediatrician', NULL);
+INSERT INTO doctor VALUES('Mandy', 'Webster', 'JK78', '1990-8-8', 'Surgeon', NULL);
+INSERT INTO doctor VALUES('Colleen', 'Aziz', 'SE66', '1989-8-24', 'Surgeon', NULL);
+INSERT INTO doctor VALUES('Kuan', 'Pang', 'NE99', '1976-2-27', 'Podiatrist', NULL);
+-- display the data in doctor
+SELECT * FROM doctor;
+
+-- add data to the hospital table
+SELECT * FROM hospital;
+INSERT INTO hospital VALUES('BBC', 'St. Joseph', 'London', 'On', '1000', 'GD56', '1999-9-10');
+INSERT INTO hospital VALUES('ABC', 'Victoria', 'London', 'On', '1600', 'YT67', '1997-12-7');
+INSERT INTO hospital VALUES('DDE', 'Victoria', 'Victoria', 'BC', '1200', 'SE66', '1994-12-5');
+-- display the data in hospital
+SELECT * FROM hospital;
+
+-- add data to the patient table
+SELECT * FROM patient;
+INSERT INTO patient VALUES('110112113', 'Bill', 'Gellar');
+INSERT INTO patient VALUES('444555666', 'Sean', 'Gellar');
+INSERT INTO patient VALUES('111222333', 'Jon', 'Green');
+INSERT INTO patient VALUES('333444555', 'Colleen', 'Gellar');
+INSERT INTO patient VALUES('667766777', 'Scotty', 'Bing');
+INSERT INTO patient VALUES('111222111', 'Suzi', 'Bing');
+-- display the data in patient
+SELECT * FROM patient;
+
+-- add data to the treating table
+SELECT * FROM treating;
+INSERT INTO treating VALUES('GD56', '110112113');
+INSERT INTO treating VALUES('HT45', '444555666');
+INSERT INTO treating VALUES('JK78', '444555666');
+INSERT INTO treating VALUES('SE66', '111222333');
+INSERT INTO treating VALUES('JK78', '111222333');
+INSERT INTO treating VALUES('GD56', '333444555');
+INSERT INTO treating VALUES('YT67', '667766777');
+INSERT INTO treating VALUES('JK78', '667766777');
+INSERT INTO treating VALUES('GD56', '667766777');
+INSERT INTO treating VALUES('YT67', '111222111');
+INSERT INTO treating VALUES('NE99', '251000962');
+INSERT INTO treating VALUES('GD56', '251000962');
+-- display the data in treating
+SELECT * FROM treating;
+
+-- update data of workoutof to the doctor table
+SELECT * FROM doctor;
+UPDATE doctor SET workoutof = 'BBC' WHERE licensenum = 'RD34';
+UPDATE doctor SET workoutof = 'BBC' WHERE licensenum = 'GD56';
+UPDATE doctor SET workoutof = 'DDE' WHERE licensenum = 'HT45';
+UPDATE doctor SET workoutof = 'DDE' WHERE licensenum = 'YT67';
+UPDATE doctor SET workoutof = 'BBC' WHERE licensenum = 'JK78';
+UPDATE doctor SET workoutof = 'ABC' WHERE licensenum = 'SE66';
+UPDATE doctor SET workoutof = 'ABC' WHERE licensenum = 'NE99';
+-- display the data in doctor
+SELECT * FROM doctor;
+
+-- change patient's lastname by giving ohip
+SELECT * FROM patient WHERE ohip = '111222111';
+UPDATE patient SET lastname = 'Brown' WHERE ohip = '111222111';
+-- display the patient by giving ohip
+SELECT * FROM patient WHERE ohip = '111222111';
+
+-- display the patient treating by Clooney before changed
+SELECT * FROM treating INNER JOIN doctor ON treating.licensenum = doctor.licensenum WHERE doctor.lastname = 'Clooney';
+-- display the patient treating by Spock before changed
+SELECT * FROM treating INNER JOIN doctor ON treating.licensenum = doctor.licensenum WHERE doctor.lastname = 'Spock';
+
+-- change the doctor treating of patient from Dr. Spock to Dr. Clooney
+UPDATE treating 
+INNER JOIN doctor ON treating.licensenum = doctor.licensenum
+SET treating.licensenum = (SELECT licensenum FROM doctor WHERE lastname = 'Clooney')
+WHERE doctor.lastname = 'Spock';
+
+-- display the patient treating by Clooney after changed
+SELECT * FROM treating INNER JOIN doctor ON treating.licensenum = doctor.licensenum WHERE doctor.lastname = 'Clooney';
+-- display the patient treating by Spock after changed
+SELECT * FROM treating INNER JOIN doctor ON treating.licensenum = doctor.licensenum WHERE doctor.lastname = 'Spock';
+

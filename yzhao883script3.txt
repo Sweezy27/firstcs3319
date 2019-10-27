@@ -1,0 +1,40 @@
+-- Yue Zhao's script3
+
+-- Query 1
+SELECT lastname FROM patient;
+
+-- Query 2
+SELECT DISTINCT lastname FROM patient;
+
+-- Query 3
+SELECT * FROM doctor ORDER BY lastname;
+
+-- Query 4
+SELECT name, code as id FROM hospital WHERE numofbeds > 1500;
+
+-- Query 5
+SELECT lastname, firstname FROM doctor, hospital WHERE doctor.workoutof = hospital.code AND hospital.name = 'St. Joseph';
+
+-- Query 6
+SELECT firstname, lastname FROM patient WHERE lastname LIKE 'G%';
+
+-- Query 7
+SELECT patient.firstname, patient.lastname FROM patient, treating, doctor WHERE patient.ohip = treating.ohip AND treating.licensenum = doctor.licensenum AND doctor.lastname = 'Clooney';
+
+-- Query 8
+SELECT name, city, lastname FROM hospital, doctor WHERE hospital.head = doctor.licensenum;
+
+-- Query 9
+SELECT SUM(numofbeds) AS 'Total Number of Beds' FROM hospital;
+
+-- Query 10
+SELECT patient.firstname, doctor.firstname FROM patient, treating, doctor, hospital WHERE patient.ohip = treating.ohip AND hospital.head = doctor.licensenum AND treating.licensenum = doctor.licensenum;
+
+-- Query 11
+SELECT lastname, firstname FROM hospital, doctor WHERE hospital.code = doctor.workoutof AND doctor.specialty = 'Surgeon' AND hospital.name = 'Victoria';
+
+-- Query 12
+SELECT firstname FROM doctor WHERE licensenum NOT IN (SELECT licensenum FROM treating);
+
+-- Query 13
+SELECT firstname, lastname FROM doctor, treating WHERE doctor.licensenum = treating.licensenum GROUP BY doctor.licensenum HAVING COUNT(ohip) > 1;
