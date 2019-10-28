@@ -1,0 +1,93 @@
+ERROR 1451 (23000) at line 7: Cannot delete or update a parent row: a foreign key constraint fails (`yzhao883assign2db`.`hospital`, CONSTRAINT `hospital_ibfk_1` FOREIGN KEY (`head`) REFERENCES `doctor` (`licensenum`))
+Error occur since the doctor deleted is a foreign key (head) in hospital which the foreign key is not ON DELETE CASCADE
+--------------
+DELETE FROM doctor WHERE datebelicensed < '1965-1-1'
+--------------
+
+--------------
+CREATE VIEW view AS SELECT patient.firstname, patient.lastname, doctor.lastname AS Doclastname, name AS hospitalname FROM patient, doctor, treating, hospital WHERE hospital.head = doctor.licensenum AND treating.licensenum = doctor.licensenum AND patient.ohip = treating.ohip AND hospital.dateofheadstart > '1995-12-31'
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+
+--------------
+SELECT * FROM view
+--------------
+
++-----------+----------+-------------+--------------+
+| firstname | lastname | Doclastname | hospitalname |
++-----------+----------+-------------+--------------+
+| Bill      | Gellar   | Shabado     | St. Joseph   |
+| Yue       | Zhao     | Shabado     | St. Joseph   |
+| Colleen   | Gellar   | Shabado     | St. Joseph   |
+| Scotty    | Bing     | Shabado     | St. Joseph   |
++-----------+----------+-------------+--------------+
+4 rows in set (0.00 sec)
+
+--------------
+SELECT * FROM doctor
+--------------
+
++-----------+------------+------------+----------------+--------------+-----------+
+| firstname | lastname   | licensenum | datebelicensed | specialty    | workoutof |
++-----------+------------+------------+----------------+--------------+-----------+
+| Joey      | Shabado    | GD56       | 1960-06-24     | Podiatrist   | BBC       |
+| Ross      | Clooney    | HT45       | 1987-06-20     | Surgeon      | DDE       |
+| Mandy     | Webster    | JK78       | 1990-08-08     | Surgeon      | BBC       |
+| Kuan      | Pang       | NE99       | 1976-02-27     | Podiatrist   | ABC       |
+| Bernie    | Kavorikian | RD34       | 1980-09-09     | Urologist    | BBC       |
+| Colleen   | Aziz       | SE66       | 1989-08-24     | Surgeon      | ABC       |
+| Ben       | Spock      | YT67       | 1955-02-20     | Pediatrician | DDE       |
++-----------+------------+------------+----------------+--------------+-----------+
+7 rows in set (0.00 sec)
+
+--------------
+SELECT * FROM treating
+--------------
+
++------------+-----------+
+| licensenum | OHIP      |
++------------+-----------+
+| GD56       | 110112113 |
+| HT45       | 111222111 |
+| JK78       | 111222333 |
+| SE66       | 111222333 |
+| GD56       | 251000962 |
+| NE99       | 251000962 |
+| GD56       | 333444555 |
+| HT45       | 444555666 |
+| JK78       | 444555666 |
+| GD56       | 667766777 |
+| HT45       | 667766777 |
+| JK78       | 667766777 |
++------------+-----------+
+12 rows in set (0.00 sec)
+
+--------------
+DELETE FROM doctor WHERE lastname = 'Clooney'
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+
+--------------
+SELECT * FROM doctor
+--------------
+
++-----------+------------+------------+----------------+--------------+-----------+
+| firstname | lastname   | licensenum | datebelicensed | specialty    | workoutof |
++-----------+------------+------------+----------------+--------------+-----------+
+| Joey      | Shabado    | GD56       | 1960-06-24     | Podiatrist   | BBC       |
+| Mandy     | Webster    | JK78       | 1990-08-08     | Surgeon      | BBC       |
+| Kuan      | Pang       | NE99       | 1976-02-27     | Podiatrist   | ABC       |
+| Bernie    | Kavorikian | RD34       | 1980-09-09     | Urologist    | BBC       |
+| Colleen   | Aziz       | SE66       | 1989-08-24     | Surgeon      | ABC       |
+| Ben       | Spock      | YT67       | 1955-02-20     | Pediatrician | DDE       |
++-----------+------------+------------+----------------+--------------+-----------+
+6 rows in set (0.00 sec)
+
+ERROR 1451 (23000) at line 29: Cannot delete or update a parent row: a foreign key constraint fails (`yzhao883assign2db`.`hospital`, CONSTRAINT `hospital_ibfk_1` FOREIGN KEY (`head`) REFERENCES `doctor` (`licensenum`))
+--------------
+DELETE FROM doctor WHERE specialty = 'Surgeon'
+--------------
+
+Bye

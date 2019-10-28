@@ -1,0 +1,177 @@
+--------------
+SELECT lastname FROM patient
+--------------
+
++----------+
+| lastname |
++----------+
+| Gellar   |
+| Brown    |
+| Green    |
+| Zhao     |
+| Gellar   |
+| Gellar   |
+| Bing     |
++----------+
+7 rows in set (0.00 sec)
+
+--------------
+SELECT DISTINCT lastname FROM patient
+--------------
+
++----------+
+| lastname |
++----------+
+| Gellar   |
+| Brown    |
+| Green    |
+| Zhao     |
+| Bing     |
++----------+
+5 rows in set (0.00 sec)
+
+--------------
+SELECT * FROM doctor ORDER BY lastname
+--------------
+
++-----------+------------+------------+----------------+--------------+-----------+
+| firstname | lastname   | licensenum | datebelicensed | specialty    | workoutof |
++-----------+------------+------------+----------------+--------------+-----------+
+| Colleen   | Aziz       | SE66       | 1989-08-24     | Surgeon      | ABC       |
+| Ross      | Clooney    | HT45       | 1987-06-20     | Surgeon      | DDE       |
+| Bernie    | Kavorikian | RD34       | 1980-09-09     | Urologist    | BBC       |
+| Kuan      | Pang       | NE99       | 1976-02-27     | Podiatrist   | ABC       |
+| Joey      | Shabado    | GD56       | 1960-06-24     | Podiatrist   | BBC       |
+| Ben       | Spock      | YT67       | 1955-02-20     | Pediatrician | DDE       |
+| Mandy     | Webster    | JK78       | 1990-08-08     | Surgeon      | BBC       |
++-----------+------------+------------+----------------+--------------+-----------+
+7 rows in set (0.00 sec)
+
+--------------
+SELECT name, code as id FROM hospital WHERE numofbeds > 1500
+--------------
+
++----------+-----+
+| name     | id  |
++----------+-----+
+| Victoria | ABC |
++----------+-----+
+1 row in set (0.00 sec)
+
+--------------
+SELECT lastname, firstname FROM doctor, hospital WHERE doctor.workoutof = hospital.code AND hospital.name = 'St. Joseph'
+--------------
+
++------------+-----------+
+| lastname   | firstname |
++------------+-----------+
+| Shabado    | Joey      |
+| Webster    | Mandy     |
+| Kavorikian | Bernie    |
++------------+-----------+
+3 rows in set (0.00 sec)
+
+--------------
+SELECT firstname, lastname FROM patient WHERE lastname LIKE 'G%'
+--------------
+
++-----------+----------+
+| firstname | lastname |
++-----------+----------+
+| Bill      | Gellar   |
+| Jon       | Green    |
+| Colleen   | Gellar   |
+| Sean      | Gellar   |
++-----------+----------+
+4 rows in set (0.00 sec)
+
+--------------
+SELECT patient.firstname, patient.lastname FROM patient, treating, doctor WHERE patient.ohip = treating.ohip AND treating.licensenum = doctor.licensenum AND doctor.lastname = 'Clooney'
+--------------
+
++-----------+----------+
+| firstname | lastname |
++-----------+----------+
+| Suzi      | Brown    |
+| Sean      | Gellar   |
+| Scotty    | Bing     |
++-----------+----------+
+3 rows in set (0.00 sec)
+
+--------------
+SELECT name, city, lastname FROM hospital, doctor WHERE hospital.head = doctor.licensenum
+--------------
+
++------------+----------+----------+
+| name       | city     | lastname |
++------------+----------+----------+
+| Victoria   | London   | Spock    |
+| St. Joseph | London   | Shabado  |
+| Victoria   | Victoria | Aziz     |
++------------+----------+----------+
+3 rows in set (0.00 sec)
+
+--------------
+SELECT SUM(numofbeds) AS 'Total Number of Beds' FROM hospital
+--------------
+
++----------------------+
+| Total Number of Beds |
++----------------------+
+|                 3800 |
++----------------------+
+1 row in set (0.00 sec)
+
+--------------
+SELECT patient.firstname, doctor.firstname FROM patient, treating, doctor, hospital WHERE patient.ohip = treating.ohip AND hospital.head = doctor.licensenum AND treating.licensenum = doctor.licensenum
+--------------
+
++-----------+-----------+
+| firstname | firstname |
++-----------+-----------+
+| Bill      | Joey      |
+| Yue       | Joey      |
+| Colleen   | Joey      |
+| Scotty    | Joey      |
+| Jon       | Colleen   |
++-----------+-----------+
+5 rows in set (0.00 sec)
+
+--------------
+SELECT lastname, firstname FROM hospital, doctor WHERE hospital.code = doctor.workoutof AND doctor.specialty = 'Surgeon' AND hospital.name = 'Victoria'
+--------------
+
++----------+-----------+
+| lastname | firstname |
++----------+-----------+
+| Clooney  | Ross      |
+| Aziz     | Colleen   |
++----------+-----------+
+2 rows in set (0.00 sec)
+
+--------------
+SELECT firstname FROM doctor WHERE licensenum NOT IN (SELECT licensenum FROM treating)
+--------------
+
++-----------+
+| firstname |
++-----------+
+| Bernie    |
+| Ben       |
++-----------+
+2 rows in set (0.00 sec)
+
+--------------
+SELECT firstname, lastname FROM doctor, treating WHERE doctor.licensenum = treating.licensenum GROUP BY doctor.licensenum HAVING COUNT(ohip) > 1
+--------------
+
++-----------+----------+
+| firstname | lastname |
++-----------+----------+
+| Joey      | Shabado  |
+| Ross      | Clooney  |
+| Mandy     | Webster  |
++-----------+----------+
+3 rows in set (0.00 sec)
+
+Bye
