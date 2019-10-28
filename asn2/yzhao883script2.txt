@@ -1,6 +1,6 @@
 -- Yue Zhao's script1
 
---get into the database
+-- get into the database
 USE yzhao883assign2db;
 -- add myself to the patient table
 SELECT * FROM patient;
@@ -30,11 +30,11 @@ SELECT * FROM hospital;
 
 -- add data to the patient table
 SELECT * FROM patient;
-LOAD DATA INFILE 'loaddatafall2019.txt' 
+LOAD DATA LOCAL INFILE 'loaddatafall2019.txt' 
 INTO TABLE patient
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"'
-LINES TERMINATED BY '\n';
+LINES TERMINATED BY '\r\n';
 -- display the data in patient
 SELECT * FROM patient;
 
