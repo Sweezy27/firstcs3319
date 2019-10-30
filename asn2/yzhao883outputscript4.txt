@@ -8,7 +8,7 @@ DELETE FROM doctor WHERE datebelicensed < '1965-1-1'
 CREATE VIEW view AS SELECT patient.firstname, patient.lastname, doctor.lastname AS Doclastname, name AS hospitalname FROM patient, doctor, treating, hospital WHERE hospital.head = doctor.licensenum AND treating.licensenum = doctor.licensenum AND patient.ohip = treating.ohip AND hospital.dateofheadstart > '1995-12-31'
 --------------
 
-Query OK, 0 rows affected (0.00 sec)
+Query OK, 0 rows affected (0.01 sec)
 
 --------------
 SELECT * FROM view

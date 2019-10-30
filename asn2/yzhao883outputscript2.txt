@@ -8,7 +8,7 @@ Empty set (0.00 sec)
 INSERT INTO patient VALUES('251000962','Yue','Zhao')
 --------------
 
-Query OK, 1 row affected (0.02 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 SELECT * FROM patient
@@ -31,25 +31,25 @@ Empty set (0.00 sec)
 INSERT INTO doctor VALUES('Bernie', 'Kavorikian', 'RD34', '1980-9-9', 'Urologist', NULL)
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO doctor VALUES('Joey', 'Shabado', 'GD56', '1960-6-24', 'Podiatrist', NULL)
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO doctor VALUES('Ross', 'Clooney', 'HT45', '1987-6-20', 'Surgeon', NULL)
 --------------
 
-Query OK, 1 row affected (0.02 sec)
+Query OK, 1 row affected (0.03 sec)
 
 --------------
 INSERT INTO doctor VALUES('Ben', 'Spock', 'YT67', '1955-2-20', 'Pediatrician', NULL)
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO doctor VALUES('Mandy', 'Webster', 'JK78', '1990-8-8', 'Surgeon', NULL)
@@ -61,13 +61,13 @@ Query OK, 1 row affected (0.01 sec)
 INSERT INTO doctor VALUES('Colleen', 'Aziz', 'SE66', '1989-8-24', 'Surgeon', NULL)
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO doctor VALUES('Kuan', 'Pang', 'NE99', '1976-2-27', 'Podiatrist', NULL)
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 SELECT * FROM doctor
@@ -117,9 +117,9 @@ SELECT * FROM hospital
 +------+------------+----------+----------+-----------+------+-----------------+
 | code | name       | city     | province | numofbeds | head | dateofheadstart |
 +------+------------+----------+----------+-----------+------+-----------------+
-| ABC  | Victoria   | London   | On       | 1600      | YT67 | 1997-12-07      |
-| BBC  | St. Joseph | London   | On       | 1000      | GD56 | 1999-09-10      |
-| DDE  | Victoria   | Victoria | BC       | 1200      | SE66 | 1994-12-05      |
+| ABC  | Victoria   | London   | On       |      1600 | YT67 | 1997-12-07      |
+| BBC  | St. Joseph | London   | On       |      1000 | GD56 | 1999-09-10      |
+| DDE  | Victoria   | Victoria | BC       |      1200 | SE66 | 1994-12-05      |
 +------+------------+----------+----------+-----------+------+-----------------+
 3 rows in set (0.00 sec)
 
@@ -172,19 +172,19 @@ Empty set (0.01 sec)
 INSERT INTO treating VALUES('GD56', '110112113')
 --------------
 
-Query OK, 1 row affected (0.16 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treating VALUES('HT45', '444555666')
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treating VALUES('JK78', '444555666')
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO treating VALUES('SE66', '111222333')
@@ -196,13 +196,13 @@ Query OK, 1 row affected (0.01 sec)
 INSERT INTO treating VALUES('JK78', '111222333')
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treating VALUES('GD56', '333444555')
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO treating VALUES('YT67', '667766777')
@@ -226,13 +226,13 @@ Query OK, 1 row affected (0.01 sec)
 INSERT INTO treating VALUES('YT67', '111222111')
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treating VALUES('NE99', '251000962')
 --------------
 
-Query OK, 1 row affected (0.02 sec)
+Query OK, 1 row affected (0.13 sec)
 
 --------------
 INSERT INTO treating VALUES('GD56', '251000962')
@@ -283,28 +283,28 @@ SELECT * FROM doctor
 UPDATE doctor SET workoutof = 'BBC' WHERE licensenum = 'RD34'
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
 UPDATE doctor SET workoutof = 'BBC' WHERE licensenum = 'GD56'
 --------------
 
-Query OK, 1 row affected (0.12 sec)
+Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
 UPDATE doctor SET workoutof = 'DDE' WHERE licensenum = 'HT45'
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
 UPDATE doctor SET workoutof = 'DDE' WHERE licensenum = 'YT67'
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
@@ -325,7 +325,7 @@ Rows matched: 1  Changed: 1  Warnings: 0
 UPDATE doctor SET workoutof = 'ABC' WHERE licensenum = 'NE99'
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
