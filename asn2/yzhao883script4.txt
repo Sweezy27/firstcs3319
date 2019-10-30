@@ -5,7 +5,7 @@ USE yzhao883assign2db;
 
 -- delete the doctor who got license before Jan 1. 1965
 DELETE FROM doctor WHERE datebelicensed < '1965-1-1';
-\! echo "Error occur since the doctor deleted is a foreign key (head) in hospital which the foreign key is not ON DELETE CASCADE";
+SELECT "Error occur since the doctor deleted is a foreign key (head) in hospital which the foreign key is not ON DELETE CASCADE";
 
 -- create a view of patient who treated by a doctor who became a head after Dec 31, 1995
 CREATE VIEW view AS SELECT patient.firstname, patient.lastname, doctor.lastname AS Doclastname, name AS hospitalname FROM patient, doctor, treating, hospital WHERE hospital.head = doctor.licensenum AND treating.licensenum = doctor.licensenum AND patient.ohip = treating.ohip AND hospital.dateofheadstart > '1995-12-31';

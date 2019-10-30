@@ -56,7 +56,7 @@ SELECT name, code as id FROM hospital WHERE numofbeds > 1500
 +----------+-----+
 | Victoria | ABC |
 +----------+-----+
-1 row in set (0.01 sec)
+1 row in set (0.00 sec)
 
 --------------
 SELECT lastname, firstname FROM doctor, hospital WHERE doctor.workoutof = hospital.code AND hospital.name = 'St. Joseph'
@@ -96,7 +96,7 @@ SELECT patient.firstname, patient.lastname FROM patient, treating, doctor WHERE 
 | Sean      | Gellar   |
 | Scotty    | Bing     |
 +-----------+----------+
-3 rows in set (0.00 sec)
+3 rows in set (0.01 sec)
 
 --------------
 SELECT name, city, lastname FROM hospital, doctor WHERE hospital.head = doctor.licensenum
