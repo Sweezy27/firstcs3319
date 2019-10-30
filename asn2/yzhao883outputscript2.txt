@@ -31,37 +31,37 @@ Empty set (0.00 sec)
 INSERT INTO doctor VALUES('Bernie', 'Kavorikian', 'RD34', '1980-9-9', 'Urologist', NULL)
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO doctor VALUES('Joey', 'Shabado', 'GD56', '1960-6-24', 'Podiatrist', NULL)
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO doctor VALUES('Ross', 'Clooney', 'HT45', '1987-6-20', 'Surgeon', NULL)
 --------------
 
-Query OK, 1 row affected (0.02 sec)
+Query OK, 1 row affected (0.03 sec)
 
 --------------
 INSERT INTO doctor VALUES('Ben', 'Spock', 'YT67', '1955-2-20', 'Pediatrician', NULL)
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO doctor VALUES('Mandy', 'Webster', 'JK78', '1990-8-8', 'Surgeon', NULL)
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO doctor VALUES('Colleen', 'Aziz', 'SE66', '1989-8-24', 'Surgeon', NULL)
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO doctor VALUES('Kuan', 'Pang', 'NE99', '1976-2-27', 'Podiatrist', NULL)
@@ -96,7 +96,7 @@ Empty set (0.00 sec)
 INSERT INTO hospital VALUES('BBC', 'St. Joseph', 'London', 'On', '1000', 'GD56', '1999-9-10')
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.02 sec)
 
 --------------
 INSERT INTO hospital VALUES('ABC', 'Victoria', 'London', 'On', '1600', 'YT67', '1997-12-7')
@@ -142,7 +142,7 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 --------------
 
-Query OK, 6 rows affected (0.10 sec)
+Query OK, 6 rows affected (0.01 sec)
 Records: 6  Deleted: 0  Skipped: 0  Warnings: 0
 
 --------------
@@ -166,37 +166,37 @@ SELECT * FROM patient
 SELECT * FROM treating
 --------------
 
-Empty set (0.02 sec)
+Empty set (0.01 sec)
 
 --------------
 INSERT INTO treating VALUES('GD56', '110112113')
 --------------
 
-Query OK, 1 row affected (0.11 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treating VALUES('HT45', '444555666')
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treating VALUES('JK78', '444555666')
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO treating VALUES('SE66', '111222333')
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treating VALUES('JK78', '111222333')
 --------------
 
-Query OK, 1 row affected (0.02 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO treating VALUES('GD56', '333444555')
@@ -208,13 +208,13 @@ Query OK, 1 row affected (0.01 sec)
 INSERT INTO treating VALUES('YT67', '667766777')
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.01 sec)
 
 --------------
 INSERT INTO treating VALUES('JK78', '667766777')
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.05 sec)
 
 --------------
 INSERT INTO treating VALUES('GD56', '667766777')
@@ -226,7 +226,7 @@ Query OK, 1 row affected (0.00 sec)
 INSERT INTO treating VALUES('YT67', '111222111')
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 
 --------------
 INSERT INTO treating VALUES('NE99', '251000962')
@@ -318,14 +318,14 @@ Rows matched: 1  Changed: 1  Warnings: 0
 UPDATE doctor SET workoutof = 'ABC' WHERE licensenum = 'SE66'
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
 UPDATE doctor SET workoutof = 'ABC' WHERE licensenum = 'NE99'
 --------------
 
-Query OK, 1 row affected (0.00 sec)
+Query OK, 1 row affected (0.02 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
@@ -360,7 +360,7 @@ SELECT * FROM patient WHERE ohip = '111222111'
 UPDATE patient SET lastname = 'Brown' WHERE ohip = '111222111'
 --------------
 
-Query OK, 1 row affected (0.01 sec)
+Query OK, 1 row affected (0.00 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 --------------
@@ -372,7 +372,7 @@ SELECT * FROM patient WHERE ohip = '111222111'
 +-----------+-----------+----------+
 | 111222111 | Suzi      | Brown    |
 +-----------+-----------+----------+
-1 row in set (0.00 sec)
+1 row in set (0.01 sec)
 
 --------------
 SELECT * FROM treating INNER JOIN doctor ON treating.licensenum = doctor.licensenum WHERE doctor.lastname = 'Clooney'
@@ -404,7 +404,7 @@ SET treating.licensenum = (SELECT licensenum FROM doctor WHERE lastname = 'Cloon
 WHERE doctor.lastname = 'Spock'
 --------------
 
-Query OK, 2 rows affected (0.01 sec)
+Query OK, 2 rows affected (0.00 sec)
 Rows matched: 2  Changed: 2  Warnings: 0
 
 --------------
@@ -418,7 +418,7 @@ SELECT * FROM treating INNER JOIN doctor ON treating.licensenum = doctor.license
 | HT45       | 444555666 | Ross      | Clooney  | HT45       | 1987-06-20     | Surgeon   | DDE       |
 | HT45       | 667766777 | Ross      | Clooney  | HT45       | 1987-06-20     | Surgeon   | DDE       |
 +------------+-----------+-----------+----------+------------+----------------+-----------+-----------+
-3 rows in set (0.00 sec)
+3 rows in set (0.01 sec)
 
 --------------
 SELECT * FROM treating INNER JOIN doctor ON treating.licensenum = doctor.licensenum WHERE doctor.lastname = 'Spock'

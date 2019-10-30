@@ -96,7 +96,7 @@ SELECT patient.firstname, patient.lastname FROM patient, treating, doctor WHERE 
 | Sean      | Gellar   |
 | Scotty    | Bing     |
 +-----------+----------+
-3 rows in set (0.01 sec)
+3 rows in set (0.00 sec)
 
 --------------
 SELECT name, city, lastname FROM hospital, doctor WHERE hospital.head = doctor.licensenum
