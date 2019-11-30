@@ -1,0 +1,60 @@
+h2{
+	font-family: 'Source Serif Pro', serif;
+}
+
+h3{
+	font-family: 'Source Serif Pro', serif;
+}
+
+lable{
+	font-family: 'Source Serif Pro', serif;
+}
+
+.show{
+	margin-left: 30px;
+	
+}
+.modify{
+	margin-left: 30px;
+}
+
+.show1{
+	margin-left: 30px;
+	width: 300px;
+  	padding: 10px;
+	border-style: solid;
+	border-color: black;
+}
+.show2{
+	margin-left: 30px;
+	width: 300px;
+  	padding: 10px;
+	border-style: solid;
+	border-color: black;
+}
+.show3{
+	margin-left: 30px;
+	width: 300px;
+  	padding: 10px;
+	border-style: solid;
+	border-color: black;
+}
+.modify1{
+	margin-left: 30px;
+	width: 400px;
+  	padding: 10px;
+	border-style: solid;
+	border-color: black;
+}
+.modify2{
+	margin-left: 30px;
+	width: 300px;
+  	padding: 10px;
+	border-style: solid;
+	border-color: black;
+}
+
+#add{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

@@ -1,0 +1,19 @@
+h2{
+	font-family: 'Source Serif Pro', serif;
+}
+
+h3{
+	font-family: 'Source Serif Pro', serif;
+}
+.modify{
+	font-family: 'Source Serif Pro', serif;
+	margin-left: 30px;
+}
+
+.modify1{
+	margin-left: 30px;
+	width: 300px;
+  	padding: 10px;
+	border-style: solid;
+	border-color: black;
+}

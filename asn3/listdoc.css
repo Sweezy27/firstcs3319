@@ -1,0 +1,30 @@
+.list1{
+	margin-left: 30px;
+	width: 250px;
+  	padding: 10px;
+	border-style: solid;
+	border-color: black;
+}
+#listdoc{
+	padding: 10px;
+}
+
+h1{
+	font-family: 'Source Serif Pro', serif;
+}
+
+h2{
+	font-family: 'Source Serif Pro', serif;
+}
+
+lable{
+	font-family: 'Source Serif Pro', serif;
+}
+
+.docdetial{
+	margin-left: 30px;
+	width: 250px;
+  	padding: 10px;
+	border-style: solid;
+	border-color: black;
+}

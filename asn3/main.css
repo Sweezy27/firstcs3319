@@ -1,0 +1,47 @@
+
+body {
+	background-color: white;
+}
+
+h1 {
+	font-family: 'Source Serif Pro', serif;
+}
+
+h2 {
+	font-family: 'Source Serif Pro', serif;
+}
+
+ol{
+	color: black;
+	font-size: 20px;
+	list-style-type: square;
+	font-family: 'Source Serif Pro', serif;
+}
+li{
+	margin: 20px;
+}
+
+lable{
+	color: blue;
+}
+
+.opt:hover {
+	background-color: gainsboro;
+}
+
+.box{
+	width: 600px;
+  	padding: 10px;
+	border-style: solid;
+	border-color: black;
+  	margin-left: 10px;
+}
+a{
+	color: black;
+	text-decoration-line: none;
+}
+
+p{
+	margin-left: 40px; 
+	color: black;
+}
